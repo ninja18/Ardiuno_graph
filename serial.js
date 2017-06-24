@@ -18,7 +18,7 @@ serial_connect.connect(collection_name);
 port.on('data',function(data){
 //inserts the serial data
 var temp = data.toString('utf8');
-serial_connect.insert(collection_name,data = {value:temp.replace(/^\r\n+/i," ")});
+serial_connect.insert(collection_name,data = {value:temp.replace(/^\r\n+/," ")}); //problem: \r\n needs to be removed
 });
 });
 port.on('error', function(err) {
